@@ -1,0 +1,1737 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Isra & Siyab Wedding Invitation</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+:root{
+
+--bg1:#F7F1E8;
+--bg2:#EFE3D0;
+--bg3:#E2D0B4;
+
+--gold:#C8A165;
+--gold2:#D8B98A;
+
+--text:#4B4036;
+
+}
+
+body{
+
+font-family:'Montserrat',sans-serif;
+
+background:
+linear-gradient(
+180deg,
+#F7F1E8,
+#EFE3D0,
+#E2D0B4
+);
+
+overflow-x:hidden;
+color:var(--text);
+
+}
+
+/* CINEMATIC EDGES */
+
+body::before{
+
+content:'';
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100%;
+
+pointer-events:none;
+
+background:
+
+radial-gradient(
+circle,
+transparent 40%,
+rgba(0,0,0,.25)
+);
+
+z-index:1;
+
+}
+
+/* FLORAL CORNERS */
+
+.floral{
+
+position:fixed;
+z-index:2;
+pointer-events:none;
+opacity:.35;
+
+}
+
+.floral-top-left{
+
+top:0;
+left:0;
+width:280px;
+
+}
+
+.floral-top-right{
+
+top:0;
+right:0;
+width:280px;
+
+transform:scaleX(-1);
+
+}
+
+.floral-bottom-left{
+
+bottom:0;
+left:0;
+width:280px;
+
+transform:scaleY(-1);
+
+}
+
+.floral-bottom-right{
+
+bottom:0;
+right:0;
+width:280px;
+
+transform:
+scaleX(-1)
+scaleY(-1);
+
+}
+
+/* OPENING SCREEN */
+
+.opening{
+
+position:fixed;
+
+top:0;
+left:0;
+
+width:100%;
+height:100vh;
+
+z-index:99999;
+
+overflow:hidden;
+
+}
+
+/* DOORS */
+
+.door{
+
+position:absolute;
+
+top:0;
+
+width:50%;
+height:100%;
+
+background:
+
+linear-gradient(
+135deg,
+#F7F1E8,
+#EFE3D0,
+#E2D0B4
+);
+
+transition:2s cubic-bezier(.77,0,.18,1);
+
+}
+
+.left-door{
+
+left:0;
+
+}
+
+.right-door{
+
+right:0;
+
+}
+
+.opening.open .left-door{
+
+transform:translateX(-100%);
+
+}
+
+.opening.open .right-door{
+
+transform:translateX(100%);
+
+}
+
+/* SEAL */
+
+.seal{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+width:150px;
+height:150px;
+
+border-radius:50%;
+
+background:
+linear-gradient(
+145deg,
+#D8B98A,
+#C8A165
+);
+
+display:flex;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+
+cursor:pointer;
+
+color:white;
+
+border:6px solid rgba(255,255,255,.6);
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.15);
+
+transition:.4s;
+
+}
+
+.seal:hover{
+
+transform:
+translate(-50%,-50%)
+scale(1.05);
+
+}
+
+.seal-heart{
+
+font-size:32px;
+
+}
+
+.seal-text{
+
+margin-top:8px;
+
+font-size:11px;
+
+letter-spacing:3px;
+
+}
+
+.opening.open .seal{
+
+opacity:0;
+
+transform:
+translate(-50%,-50%)
+scale(0);
+
+}
+
+/* HERO */
+
+.hero{
+
+min-height:100vh;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+padding:80px 20px;
+
+position:relative;
+
+z-index:5;
+
+}
+
+.hero-content{
+
+max-width:1000px;
+
+text-align:center;
+
+opacity:0;
+transform:translateY(50px);
+
+transition:1.5s;
+
+}
+
+.hero-content.show{
+
+opacity:1;
+transform:none;
+
+}
+
+/* TOP TEXT */
+
+.family-line{
+
+letter-spacing:5px;
+
+font-size:13px;
+
+margin-bottom:30px;
+
+}
+
+/* NAMES */
+
+.names{
+
+font-family:'Great Vibes',cursive;
+
+font-size:5rem;
+
+line-height:1.3;
+
+color:#5a4638;
+
+}
+
+.and{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3rem;
+
+color:var(--gold);
+
+margin:10px 0;
+
+}
+
+/* DATE UNDER NAMES */
+
+.hero-date{
+
+margin-top:25px;
+
+letter-spacing:4px;
+
+font-size:14px;
+
+color:var(--gold);
+
+}
+
+/* VERSE CARD */
+
+.verse-card{
+
+margin:60px auto 0;
+
+max-width:700px;
+
+padding:30px;
+
+border-radius:25px;
+
+background:
+rgba(255,255,255,.45);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.6);
+
+}
+
+.verse-card p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+font-style:italic;
+
+}
+
+.verse-card span{
+
+display:block;
+
+margin-top:10px;
+
+font-size:18px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.names{
+
+font-size:2.8rem;
+
+}
+
+.and{
+
+font-size:2rem;
+
+}
+
+.verse-card p{
+
+font-size:1.4rem;
+
+}
+
+.floral{
+
+width:140px !important;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<!-- FLORALS -->
+
+<img src="https://i.imgur.com/Ym2m6Xj.png" class="floral floral-top-left">
+<img src="https://i.imgur.com/Ym2m6Xj.png" class="floral floral-top-right">
+<img src="https://i.imgur.com/Ym2m6Xj.png" class="floral floral-bottom-left">
+<img src="https://i.imgur.com/Ym2m6Xj.png" class="floral floral-bottom-right">
+
+<!-- OPENING -->
+
+<section class="opening" id="opening">
+
+<div class="door left-door"></div>
+
+<div class="door right-door"></div>
+
+<div class="seal" id="seal">
+
+<div class="seal-heart">♥</div>
+
+<div class="seal-text">
+TAP TO OPEN
+</div>
+
+</div>
+
+</section>
+
+<!-- HERO -->
+
+<section class="hero">
+
+<div class="hero-content" id="heroContent">
+
+<div class="family-line">
+TOGETHER WITH THEIR FAMILIES
+</div>
+
+<div class="names">
+
+Isra Binth Abdul Hameed
+
+<div class="and">&</div>
+
+Muhammed Siyab
+
+</div>
+
+<div class="hero-date">
+
+12 JULY 2026 • YASHASVI HALL
+
+</div>
+
+<div class="verse-card">
+
+<p>
+"And We created you in pairs."
+</p>
+
+<span>
+(Quran 78:8)
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- PART 2 STARTS BELOW -->
+
+<!-- DATE REVEAL -->
+
+<section class="date-section">
+
+<div class="section-heading">
+
+REVEAL OUR DATE
+
+</div>
+
+<div class="scratch-wrapper">
+
+<div class="date-hidden">
+
+<div class="date-card">
+12
+</div>
+
+<div class="date-card">
+JULY
+</div>
+
+<div class="date-card">
+2026
+</div>
+
+</div>
+
+<canvas id="scratchCanvas"></canvas>
+
+<div class="scratch-text">
+
+Scratch To Reveal
+
+</div>
+
+</div>
+
+</section>
+
+<!-- COUNTDOWN -->
+
+<section class="countdown-section">
+
+<div class="section-heading">
+
+COUNTDOWN
+
+</div>
+
+<div class="countdown-grid">
+
+<div class="count-card">
+
+<div id="days" class="count-number">
+00
+</div>
+
+<div class="count-label">
+DAYS
+</div>
+
+</div>
+
+<div class="count-card">
+
+<div id="hours" class="count-number">
+00
+</div>
+
+<div class="count-label">
+HOURS
+</div>
+
+</div>
+
+<div class="count-card">
+
+<div id="minutes" class="count-number">
+00
+</div>
+
+<div class="count-label">
+MINUTES
+</div>
+
+</div>
+
+<div class="count-card">
+
+<div id="seconds" class="count-number">
+00
+</div>
+
+<div class="count-label">
+SECONDS
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<style>
+
+/* SECTION TITLE */
+
+.section-heading{
+
+text-align:center;
+
+letter-spacing:5px;
+
+font-size:13px;
+
+margin-bottom:40px;
+
+color:var(--gold);
+
+}
+
+/* SCRATCH SECTION */
+
+.date-section{
+
+padding:120px 20px;
+position:relative;
+z-index:5;
+
+}
+
+.scratch-wrapper{
+
+max-width:900px;
+
+height:240px;
+
+margin:auto;
+
+position:relative;
+
+border-radius:30px;
+
+overflow:hidden;
+
+background:
+
+linear-gradient(
+135deg,
+#c8a165,
+#d8b98a
+);
+
+box-shadow:
+0 25px 70px rgba(0,0,0,.12);
+
+}
+
+.date-hidden{
+
+position:absolute;
+
+inset:0;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+gap:25px;
+
+background:
+rgba(255,255,255,.92);
+
+}
+
+.date-card{
+
+width:170px;
+height:120px;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+background:white;
+
+border-radius:20px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3rem;
+
+color:var(--gold);
+
+box-shadow:
+0 10px 30px rgba(0,0,0,.08);
+
+animation:floatCard 5s infinite ease-in-out;
+
+}
+
+.date-card:nth-child(2){
+
+animation-delay:1s;
+
+}
+
+.date-card:nth-child(3){
+
+animation-delay:2s;
+
+}
+
+#scratchCanvas{
+
+position:absolute;
+
+inset:0;
+
+width:100%;
+height:100%;
+
+cursor:pointer;
+
+}
+
+.scratch-text{
+
+position:absolute;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+color:white;
+
+letter-spacing:3px;
+
+pointer-events:none;
+
+}
+
+/* COUNTDOWN */
+
+.countdown-section{
+
+padding:120px 20px;
+position:relative;
+z-index:5;
+
+}
+
+.countdown-grid{
+
+max-width:1100px;
+
+margin:auto;
+
+display:grid;
+
+grid-template-columns:
+repeat(4,1fr);
+
+gap:25px;
+
+}
+
+.count-card{
+
+padding:40px 20px;
+
+border-radius:25px;
+
+background:
+
+linear-gradient(
+135deg,
+rgba(255,255,255,.65),
+rgba(255,255,255,.45)
+);
+
+backdrop-filter:blur(15px);
+
+border:1px solid rgba(255,255,255,.6);
+
+text-align:center;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.count-card::before{
+
+content:'✿';
+
+position:absolute;
+
+top:12px;
+right:15px;
+
+color:rgba(200,161,101,.25);
+
+font-size:22px;
+
+}
+
+.count-number{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3.8rem;
+
+color:var(--gold);
+
+}
+
+.count-label{
+
+font-size:12px;
+
+letter-spacing:4px;
+
+margin-top:10px;
+
+}
+
+/* FLOAT */
+
+@keyframes floatCard{
+
+50%{
+
+transform:translateY(-10px);
+
+}
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.scratch-wrapper{
+
+height:180px;
+
+}
+
+.date-hidden{
+
+gap:10px;
+
+}
+
+.date-card{
+
+width:90px;
+height:70px;
+
+font-size:1.5rem;
+
+}
+
+.scratch-text{
+
+font-size:1.2rem;
+
+}
+
+.countdown-grid{
+
+grid-template-columns:
+repeat(2,1fr);
+
+}
+
+.count-number{
+
+font-size:2rem;
+
+}
+
+}
+
+</style>
+
+<!-- PART 3 STARTS BELOW -->
+
+<!-- COUPLE SECTION -->
+
+<section class="couple-section">
+
+<div class="section-heading">
+
+THE COUPLE
+
+</div>
+
+<div class="couple-wrapper">
+
+<div class="couple-card">
+
+<div class="floral-icon">
+✿
+</div>
+
+<h3>
+Isra Binth Abdul Hameed
+</h3>
+
+<p>
+Bride
+</p>
+
+</div>
+
+<div class="couple-heart">
+♥
+</div>
+
+<div class="couple-card">
+
+<div class="floral-icon">
+✿
+</div>
+
+<h3>
+Muhammed Siyab
+</h3>
+
+<p>
+Groom
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- NIKAH TIMELINE -->
+
+<section class="nikah-section">
+
+<div class="section-heading">
+
+NIKAH CEREMONY
+
+</div>
+
+<div class="nikah-card">
+
+<div class="nikah-flower">
+❀
+</div>
+
+<div class="nikah-time">
+
+11:00 AM
+
+</div>
+
+<div class="nikah-title">
+
+Nikah Begins
+
+</div>
+
+<div class="nikah-line"></div>
+
+</div>
+
+</section>
+
+<!-- VENUE -->
+
+<section class="venue-section">
+
+<div class="section-heading">
+
+VENUE
+
+</div>
+
+<div class="venue-card">
+
+<div class="venue-floral">
+
+✿ ✿ ✿
+
+</div>
+
+<h2>
+
+Yashasvi Hall
+
+</h2>
+
+<p>
+
+Arkula, Farangipete
+
+</p>
+
+<div class="venue-map">
+
+<iframe
+src="https://maps.google.com/maps?q=Arkula%20Farangipete&t=&z=15&ie=UTF8&iwloc=&output=embed"
+loading="lazy">
+</iframe>
+
+</div>
+
+<a
+href="https://maps.app.goo.gl/qEcNhoHuQnTmQQ7v9"
+target="_blank"
+class="venue-btn">
+
+View Location
+
+</a>
+
+</div>
+
+</section>
+
+<style>
+
+/* COUPLE SECTION */
+
+.couple-section{
+
+padding:120px 20px;
+position:relative;
+z-index:5;
+
+}
+
+.couple-wrapper{
+
+max-width:1100px;
+margin:auto;
+
+display:flex;
+justify-content:center;
+align-items:center;
+
+gap:40px;
+flex-wrap:wrap;
+
+}
+
+.couple-card{
+
+width:420px;
+
+padding:50px 30px;
+
+text-align:center;
+
+background:
+rgba(255,255,255,.55);
+
+border-radius:30px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.08);
+
+border:1px solid rgba(255,255,255,.7);
+
+transition:.4s;
+
+}
+
+.couple-card:hover{
+
+transform:
+translateY(-10px);
+
+}
+
+.floral-icon{
+
+font-size:28px;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.couple-card h3{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2.5rem;
+
+color:#5a4638;
+
+margin-bottom:10px;
+
+}
+
+.couple-card p{
+
+letter-spacing:3px;
+
+font-size:13px;
+
+color:var(--gold);
+
+}
+
+.couple-heart{
+
+font-size:3rem;
+
+color:var(--gold);
+
+}
+
+/* NIKAH */
+
+.nikah-section{
+
+padding:120px 20px;
+position:relative;
+z-index:5;
+
+}
+
+.nikah-card{
+
+max-width:600px;
+
+margin:auto;
+
+text-align:center;
+
+padding:60px 30px;
+
+background:
+rgba(255,255,255,.55);
+
+border-radius:30px;
+
+box-shadow:
+0 20px 50px rgba(0,0,0,.08);
+
+}
+
+.nikah-flower{
+
+font-size:30px;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.nikah-time{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:4rem;
+
+color:var(--gold);
+
+}
+
+.nikah-title{
+
+font-size:22px;
+
+margin-top:10px;
+
+letter-spacing:3px;
+
+}
+
+.nikah-line{
+
+width:100px;
+height:2px;
+
+background:var(--gold);
+
+margin:25px auto 0;
+
+}
+
+/* VENUE */
+
+.venue-section{
+
+padding:120px 20px;
+position:relative;
+z-index:5;
+
+}
+
+.venue-card{
+
+max-width:1000px;
+
+margin:auto;
+
+padding:50px;
+
+background:
+rgba(255,255,255,.55);
+
+border-radius:35px;
+
+text-align:center;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.08);
+
+}
+
+.venue-floral{
+
+font-size:24px;
+
+color:var(--gold);
+
+margin-bottom:20px;
+
+}
+
+.venue-card h2{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:3rem;
+
+color:#5a4638;
+
+}
+
+.venue-card p{
+
+margin-top:10px;
+margin-bottom:30px;
+
+letter-spacing:2px;
+
+}
+
+.venue-map{
+
+overflow:hidden;
+
+border-radius:20px;
+
+}
+
+.venue-map iframe{
+
+width:100%;
+height:420px;
+border:none;
+
+}
+
+.venue-btn{
+
+display:inline-block;
+
+margin-top:30px;
+
+padding:15px 35px;
+
+background:var(--gold);
+
+color:white;
+
+text-decoration:none;
+
+border-radius:50px;
+
+letter-spacing:3px;
+
+font-size:13px;
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.couple-card{
+
+width:100%;
+
+}
+
+.couple-card h3{
+
+font-size:2rem;
+
+}
+
+.couple-heart{
+
+font-size:2rem;
+
+}
+
+.nikah-time{
+
+font-size:2.5rem;
+
+}
+
+.venue-card{
+
+padding:25px;
+
+}
+
+.venue-card h2{
+
+font-size:2rem;
+
+}
+
+.venue-map iframe{
+
+height:280px;
+
+}
+
+}
+
+</style>
+
+<!-- PART 4 STARTS BELOW -->
+
+<!-- BLESSING SECTION -->
+
+<section class="blessing-section">
+
+<div class="section-heading">
+BLESSINGS
+</div>
+
+<div class="blessing-card">
+
+<div class="blessing-floral">
+✿ ❀ ✿
+</div>
+
+<p>
+
+May Allah bless you both,
+shower His blessings upon you,
+and unite you together in goodness.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- MUSIC -->
+
+<audio id="music" loop>
+<source src="nasheed.mp3" type="audio/mpeg">
+</audio>
+
+<button id="musicBtn">
+♫
+</button>
+
+<style>
+
+/* BLESSING */
+
+.blessing-section{
+
+padding:120px 20px;
+position:relative;
+z-index:5;
+
+}
+
+.blessing-card{
+
+max-width:900px;
+
+margin:auto;
+
+padding:70px 40px;
+
+text-align:center;
+
+background:
+rgba(255,255,255,.55);
+
+border-radius:35px;
+
+box-shadow:
+0 20px 60px rgba(0,0,0,.08);
+
+}
+
+.blessing-floral{
+
+font-size:28px;
+
+color:var(--gold);
+
+margin-bottom:25px;
+
+}
+
+.blessing-card p{
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2rem;
+
+line-height:1.8;
+
+color:#5a4638;
+
+}
+
+/* MUSIC BUTTON */
+
+#musicBtn{
+
+position:fixed;
+
+right:20px;
+bottom:20px;
+
+width:60px;
+height:60px;
+
+border:none;
+
+border-radius:50%;
+
+background:var(--gold);
+
+color:white;
+
+font-size:24px;
+
+cursor:pointer;
+
+z-index:9999;
+
+box-shadow:
+0 10px 25px rgba(0,0,0,.15);
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+.blessing-card{
+
+padding:40px 20px;
+
+}
+
+.blessing-card p{
+
+font-size:1.4rem;
+
+}
+
+}
+
+</style>
+
+<script>
+
+/* OPENING ANIMATION */
+
+const seal = document.getElementById('seal');
+const opening = document.getElementById('opening');
+const heroContent = document.getElementById('heroContent');
+const music = document.getElementById('music');
+
+seal.addEventListener('click', async ()=>{
+
+try{
+await music.play();
+}catch(e){}
+
+opening.classList.add('open');
+
+setTimeout(()=>{
+
+opening.style.display='none';
+
+heroContent.classList.add('show');
+
+},2200);
+
+});
+
+/* MUSIC CONTROL */
+
+const musicBtn =
+document.getElementById('musicBtn');
+
+let playing = true;
+
+musicBtn.addEventListener('click',()=>{
+
+if(playing){
+
+music.pause();
+musicBtn.innerHTML='♫';
+playing=false;
+
+}else{
+
+music.play();
+musicBtn.innerHTML='❚❚';
+playing=true;
+
+}
+
+});
+
+/* COUNTDOWN */
+
+const weddingDate =
+new Date(
+"July 12, 2026 11:00:00"
+).getTime();
+
+setInterval(()=>{
+
+const now =
+new Date().getTime();
+
+const distance =
+weddingDate-now;
+
+document.getElementById("days").innerHTML =
+Math.floor(distance/(1000*60*60*24));
+
+document.getElementById("hours").innerHTML =
+Math.floor(
+(distance%(1000*60*60*24))
+/
+(1000*60*60)
+);
+
+document.getElementById("minutes").innerHTML =
+Math.floor(
+(distance%(1000*60*60))
+/
+(1000*60)
+);
+
+document.getElementById("seconds").innerHTML =
+Math.floor(
+(distance%(1000*60))
+/
+1000
+);
+
+},1000);
+
+/* SCRATCH REVEAL */
+
+const canvas =
+document.getElementById('scratchCanvas');
+
+if(canvas){
+
+const ctx =
+canvas.getContext('2d');
+
+function resizeCanvas(){
+
+canvas.width =
+canvas.offsetWidth;
+
+canvas.height =
+canvas.offsetHeight;
+
+ctx.fillStyle =
+'#C8A165';
+
+ctx.fillRect(
+0,
+0,
+canvas.width,
+canvas.height
+);
+
+}
+
+resizeCanvas();
+
+let scratching=false;
+
+function scratch(x,y){
+
+ctx.globalCompositeOperation=
+'destination-out';
+
+ctx.beginPath();
+
+ctx.arc(
+x,
+y,
+35,
+0,
+Math.PI*2
+);
+
+ctx.fill();
+
+}
+
+canvas.addEventListener(
+'mousedown',
+()=> scratching=true
+);
+
+canvas.addEventListener(
+'mouseup',
+()=> scratching=false
+);
+
+canvas.addEventListener(
+'mousemove',
+(e)=>{
+
+if(!scratching) return;
+
+const rect =
+canvas.getBoundingClientRect();
+
+scratch(
+e.clientX-rect.left,
+e.clientY-rect.top
+);
+
+});
+
+canvas.addEventListener(
+'touchmove',
+(e)=>{
+
+const rect =
+canvas.getBoundingClientRect();
+
+scratch(
+e.touches[0].clientX-rect.left,
+e.touches[0].clientY-rect.top
+);
+
+});
+
+}
+
+/* FLOWER FLOAT */
+
+setInterval(()=>{
+
+const flower =
+document.createElement('div');
+
+flower.innerHTML='✿';
+
+flower.style.position='fixed';
+flower.style.left=
+Math.random()*100+'%';
+
+flower.style.bottom='-20px';
+
+flower.style.color=
+'rgba(200,161,101,.4)';
+
+flower.style.fontSize=
+(Math.random()*15+15)+'px';
+
+flower.style.zIndex='2';
+
+flower.style.pointerEvents='none';
+
+flower.style.transition='8s linear';
+
+document.body.appendChild(flower);
+
+setTimeout(()=>{
+
+flower.style.transform=
+'translateY(-120vh) rotate(360deg)';
+
+flower.style.opacity='0';
+
+},100);
+
+setTimeout(()=>{
+
+flower.remove();
+
+},8000);
+
+},1200);
+
+</script>
+
+</body>
+</html>
