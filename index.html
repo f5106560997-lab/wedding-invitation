@@ -313,9 +313,11 @@ transform:none;
 
 letter-spacing:5px;
 
-font-size:13px;
+font-size:15px;
 
 margin-bottom:30px;
+padding-top: 1px;
+
 
 }
 
@@ -430,6 +432,72 @@ width:140px !important;
 
 }
 
+/* ==========================
+   SCROLL DOWN
+========================== */
+
+.scroll-indicator{
+
+margin-top:5px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+animation:fadeIn 1.5s ease;
+
+}
+
+.arrow{
+
+font-size:42px;
+
+color:#C8A165;
+
+animation:arrowMove 1.5s infinite;
+
+}
+
+.scroll-text{
+
+margin-top:8px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:15px;
+
+letter-spacing:3px;
+
+color:#8A6D3B;
+
+text-transform:uppercase;
+
+}
+
+@keyframes arrowMove{
+
+0%,100%{
+
+transform:translateY(0);
+
+opacity:.6;
+
+}
+
+50%{
+
+transform:translateY(12px);
+
+opacity:1;
+
+}
+
+}
+
 </style>
 
 </head>
@@ -465,13 +533,14 @@ TAP TO OPEN
 
 <!-- HERO -->
 
+
+
 <section class="hero">
 
 <div class="hero-content" id="heroContent">
 
 <div class="family-line">
-TOGETHER WITH THEIR FAMILIES
-</div>
+We Are Getting Married</div>
 
 <div class="names">
 
@@ -501,6 +570,18 @@ Muhammed Siyab
 
 </div>
 
+<div class="scroll-indicator">
+
+    <div class="arrow">
+        &#8595;
+    </div>
+
+    <div class="scroll-text">
+        Scroll Down
+    </div>
+
+</div>
+
 </div>
 
 </section>
@@ -513,37 +594,43 @@ Muhammed Siyab
 
 <div class="section-heading">
 
-REVEAL OUR DATE
 
-</div>
+<!-- DATE REVEAL -->
+<!-- DATE REVEAL -->
 
-<div class="scratch-wrapper">
+<section class="date-section">
 
-<div class="date-hidden">
+    <div class="section-heading">
+       Scratch to Reveal
+    </div>
 
-<div class="date-card">
-12
-</div>
+    <div class="scratch-container">
 
-<div class="date-card">
-JULY
-</div>
+        <div class="scratch-card">
 
-<div class="date-card">
-2026
-</div>
+            <div class="date-text">12</div>
 
-</div>
+            <div class="scratch-cover"></div>
 
-<canvas id="scratchCanvas"></canvas>
+        </div>
 
-<div class="scratch-text">
+        <div class="scratch-card">
 
+            <div class="date-text">JULY</div>
 
+            <div class="scratch-cover"></div>
 
-</div>
+        </div>
 
-</div>
+        <div class="scratch-card">
+
+            <div class="date-text">2026</div>
+
+            <div class="scratch-cover"></div>
+
+        </div>
+
+    </div>
 
 </section>
 
@@ -617,60 +704,253 @@ SECONDS
 
 .section-heading{
 
+font-family:'Cormorant Garamond',serif;
+
+font-size:3.2rem;
+
+font-weight:700;
+
 text-align:center;
 
-letter-spacing:5px;
+letter-spacing:1px;
 
-font-size:13px;
+color:#5A4638;
 
-margin-bottom:40px;
+margin-bottom:55px;
 
-color:var(--gold);
+position:relative;
+
+animation:fadeDown 1s ease;
+
+}
+
+.section-heading::after{
+
+content:'';
+
+display:block;
+
+width:140px;
+
+height:2px;
+
+margin:18px auto 0;
+
+background:
+linear-gradient(
+90deg,
+transparent,
+#C8A165,
+transparent
+);
 
 }
 
 /* SCRATCH SECTION */
 
+/* ===========================
+   DATE REVEAL
+=========================== */
+
 .date-section{
 
 padding:120px 20px;
-position:relative;
-z-index:5;
+
+text-align:center;
 
 }
 
-.scratch-wrapper{
+.scratch-container{
 
-max-width:900px;
+display:flex;
 
-height:240px;
+justify-content:center;
 
-margin:auto;
+align-items:center;
+
+gap:25px;
+
+flex-wrap:wrap;
+
+margin-top:50px;
+
+}
+
+.scratch-card{
 
 position:relative;
 
-border-radius:30px;
+width:170px;
+
+height:120px;
+
+border-radius:22px;
 
 overflow:hidden;
 
-background:
-
-linear-gradient(
-135deg,
-#c8a165,
-#d8b98a
-);
+background:white;
 
 box-shadow:
-0 25px 70px rgba(0,0,0,.12);
+0 18px 40px rgba(0,0,0,.08);
+
+cursor:pointer;
 
 }
 
-.date-hidden{
+/* Hidden Date */
+
+.date-text{
+
+position:absolute;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:2.7rem;
+
+font-weight:700;
+
+color:#5A4638;
+
+user-select:none;
+
+}
+
+/* Scratch Layer */
+
+.scratch-cover{
 
 position:absolute;
 
 inset:0;
+
+background:
+linear-gradient(
+135deg,
+#E6D3A3,
+#D8B98A,
+#C8A165
+);
+
+transition:0.45s ease;
+
+z-index:5;
+
+}
+
+/* Scratch Texture */
+
+.scratch-cover::before{
+
+content:"";
+
+position:absolute;
+
+inset:0;
+
+opacity:.18;
+
+background-image:
+
+repeating-linear-gradient(
+45deg,
+
+rgba(255,255,255,.35) 0px,
+
+rgba(255,255,255,.35) 2px,
+
+transparent 2px,
+
+transparent 8px
+
+);
+
+}
+
+/* Removed Layer */
+
+.scratch-card.revealed .scratch-cover{
+
+opacity:0;
+
+transform:scale(1.4);
+
+pointer-events:none;
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+.scratch-container{
+
+gap:12px;
+
+}
+
+.scratch-card{
+
+width:95px;
+
+height:75px;
+
+}
+
+.date-text{
+
+font-size:1.6rem;
+
+}
+
+}
+/* DATE SECTION */
+
+.date-section{
+
+padding:120px 20px;
+text-align:center;
+
+}
+
+.tap-message{
+
+display:inline-block;
+
+padding:18px 40px;
+
+background:linear-gradient(135deg,#D8B98A,#C8A165);
+
+color:white;
+
+border-radius:50px;
+
+font-family:'Cormorant Garamond',serif;
+
+font-size:1.6rem;
+
+letter-spacing:2px;
+
+cursor:pointer;
+
+transition:.4s;
+
+box-shadow:0 15px 35px rgba(0,0,0,.12);
+
+}
+
+.tap-message:hover{
+
+transform:scale(1.05);
+
+}
+
+.date-wrapper{
 
 display:flex;
 justify-content:center;
@@ -678,83 +958,103 @@ align-items:center;
 
 gap:25px;
 
-background:
-rgba(255,255,255,.92);
+margin-top:50px;
+
+flex-wrap:wrap;
+
+opacity:0;
+
+transform:translateY(40px);
+
+transition:1s;
+
+}
+
+.date-wrapper.show{
+
+opacity:1;
+
+transform:translateY(0);
 
 }
 
 .date-card{
 
-width:170px;
+width:160px;
 height:120px;
 
 display:flex;
 justify-content:center;
 align-items:center;
 
-background:white;
+background:rgba(255,255,255,.75);
 
-border-radius:20px;
+backdrop-filter:blur(12px);
+
+border-radius:22px;
+
+border:1px solid rgba(255,255,255,.8);
 
 font-family:'Cormorant Garamond',serif;
 
-font-size:3rem;
+font-size:2.8rem;
 
-color:var(--gold);
+color:#5a4638;
 
-box-shadow:
-0 10px 30px rgba(0,0,0,.08);
+box-shadow:0 15px 35px rgba(0,0,0,.08);
 
-animation:floatCard 5s infinite ease-in-out;
+animation:floatCard 5s ease-in-out infinite;
 
 }
 
 .date-card:nth-child(2){
 
-animation-delay:1s;
+animation-delay:.8s;
 
 }
 
 .date-card:nth-child(3){
 
-animation-delay:2s;
+animation-delay:1.6s;
 
 }
 
-#scratchCanvas{
+@keyframes floatCard{
 
-position:absolute;
+50%{
 
-inset:0;
-
-width:100%;
-height:100%;
-
-cursor:pointer;
+transform:translateY(-8px);
 
 }
 
-.scratch-text{
+}
 
-position:absolute;
+@media(max-width:768px){
 
-top:50%;
-left:50%;
+.date-wrapper{
 
-transform:translate(-50%,-50%);
-
-font-family:'Cormorant Garamond',serif;
-
-font-size:2rem;
-
-color:white;
-
-letter-spacing:3px;
-
-pointer-events:none;
+gap:12px;
 
 }
 
+.date-card{
+
+width:95px;
+height:75px;
+
+font-size:1.5rem;
+
+}
+
+.tap-message{
+
+font-size:1.2rem;
+
+padding:14px 28px;
+
+}
+
+}
 /* COUNTDOWN */
 
 .countdown-section{
@@ -842,6 +1142,26 @@ margin-top:10px;
 }
 
 /* FLOAT */
+
+@keyframes fadeDown{
+
+from{
+
+opacity:0;
+
+transform:translateY(-40px);
+
+}
+
+to{
+
+opacity:1;
+
+transform:none;
+
+}
+
+}
 
 @keyframes floatCard{
 
@@ -1591,145 +1911,57 @@ Math.floor(
 },1000);
 
 /* SCRATCH REVEAL */
+/* TAP TO REVEAL DATE */
 
-const canvas =
-document.getElementById('scratchCanvas');
+/* ==========================
+   SCRATCH REVEAL ON TAP
+========================== */
 
-if(canvas){
+const scratchCards = document.querySelectorAll(".scratch-card");
 
-const ctx =
-canvas.getContext('2d');
+scratchCards.forEach(card => {
 
-function resizeCanvas(){
+    card.addEventListener("click", function () {
 
-canvas.width =
-canvas.offsetWidth;
+        if (this.classList.contains("revealed")) return;
 
-canvas.height =
-canvas.offsetHeight;
+        const cover = this.querySelector(".scratch-cover");
 
-ctx.fillStyle =
-'#C8A165';
+        /* Scratch-like animation */
 
-ctx.fillRect(
-0,
-0,
-canvas.width,
-canvas.height
-);
+        cover.animate(
 
-}
+            [
 
-resizeCanvas();
+                {
+                    clipPath: "circle(100% at 50% 50%)",
+                    opacity: 1
+                },
 
-let scratching=false;
+                {
+                    clipPath: "circle(0% at 50% 50%)",
+                    opacity: 0
+                }
 
-function scratch(x,y){
+            ],
 
-ctx.globalCompositeOperation=
-'destination-out';
+            {
+                duration: 450,
+                easing: "ease-out",
+                fill: "forwards"
+            }
 
-ctx.beginPath();
+        );
 
-ctx.arc(
-x,
-y,
-35,
-0,
-Math.PI*2
-);
+        setTimeout(() => {
 
-ctx.fill();
+            this.classList.add("revealed");
 
-}
+        }, 430);
 
-canvas.addEventListener(
-'mousedown',
-()=> scratching=true
-);
-
-canvas.addEventListener(
-'mouseup',
-()=> scratching=false
-);
-
-canvas.addEventListener(
-'mousemove',
-(e)=>{
-
-if(!scratching) return;
-
-const rect =
-canvas.getBoundingClientRect();
-
-scratch(
-e.clientX-rect.left,
-e.clientY-rect.top
-);
+    });
 
 });
-
-canvas.addEventListener(
-'touchmove',
-(e)=>{
-
-const rect =
-canvas.getBoundingClientRect();
-
-scratch(
-e.touches[0].clientX-rect.left,
-e.touches[0].clientY-rect.top
-);
-
-});
-
-}
-
-/* FLOWER FLOAT */
-
-setInterval(()=>{
-
-const flower =
-document.createElement('div');
-
-flower.innerHTML='✿';
-
-flower.style.position='fixed';
-flower.style.left=
-Math.random()*100+'%';
-
-flower.style.bottom='-20px';
-
-flower.style.color=
-'rgba(200,161,101,.4)';
-
-flower.style.fontSize=
-(Math.random()*15+15)+'px';
-
-flower.style.zIndex='2';
-
-flower.style.pointerEvents='none';
-
-flower.style.transition='8s linear';
-
-document.body.appendChild(flower);
-
-setTimeout(()=>{
-
-flower.style.transform=
-'translateY(-120vh) rotate(360deg)';
-
-flower.style.opacity='0';
-
-},100);
-
-setTimeout(()=>{
-
-flower.remove();
-
-},8000);
-
-},1200);
 
 </script>
 
